@@ -19,18 +19,17 @@ y = df['author'].astype('int')
 # Classifier
 mnb = MultinomialNB()
 # 'Term Frequency–Inverse Document Frequency' Vectorizer
-tfidf = TfidfVectorizer(min_df=1, stop_words='english')
-# Normal Vectorizer
-cv = CountVectorizer()
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = .1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = .3)
 
 #### Normal Vectorizer Test ####
+cv = CountVectorizer()
 X_train = cv.fit_transform(X_train)
 X_test = cv.transform(X_test)
 # print(cv.inverse_transform(X_test))
 
 #### TFIDF Vectorizer Test ####
+tfidf = TfidfVectorizer(min_df=1, stop_words=None)
 # X_train = tfidf.fit_transform(X_train)
 # X_test = tfidf.transform(X_test)
 # print(tfidf.inverse_transform(X_test))
